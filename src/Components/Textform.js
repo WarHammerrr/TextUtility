@@ -42,6 +42,13 @@ function handleclearclick(){
 props.showAlert("Text Cleared")
 
 }
+function handlecopy() {
+navigator.clipboard.writeText(text);
+  }
+  function handlespaces(){
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));   
+  }  
   return (
     <>
   <div className="container">
@@ -53,6 +60,9 @@ props.showAlert("Text Cleared")
 <button type="button" className="btn btn-secondary mt-3 " onClick={handleupclick}>UpperCase</button>
 <button type="button" className="btn btn-secondary mt-3 mx-2" onClick={handlelowclick}>LowerCase</button>
 <button type="button" className="btn btn-secondary mt-3 mx-2" onClick={handleclearclick}>Clear</button>
+<button type="button" className="btn btn-secondary mt-3 mx-2" onClick={handlecopy}>Copy</button>
+<button type="button" className="btn btn-secondary mt-3 mx-2" onClick={handlespaces}>Remove extra space</button>
+
 
 <div className="container my-2"  ></div>
 <h5 style={{color:props.mode==='light'?'black':'white'}}><strong>Text Analysis</strong></h5>
